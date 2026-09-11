@@ -1,12 +1,13 @@
 # PCL Wallpaper Page
 
 PCL Wallpaper Page主页仓库。
+原作者wzyaeu
 
 ## 使用
 
 ### 使用链接
 
-前往`设置->个性化->主页`，输入联网下载地址`wallpaper.p.kaphia.top`。
+前往`设置->个性化->主页`，输入联网下载地址`https://pcl.xn--9iq209asnop94b.top/download/WallpaperPage.xaml`。
 
 ## 协议
 
