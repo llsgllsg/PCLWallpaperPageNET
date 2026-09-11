@@ -102,11 +102,11 @@ def mainpage():
             },
         })
     print('mainpage-保存输出文件')
-    save_output_file('Custom.xaml',replaces(templates['mainpage'],{
+    save_output_file('WallpaperPage.xaml',replaces(templates['mainpage'],{
         'images':output,
         'gv':BUILD_VERSION
     }))
-    save_output_file('Custom.xaml.ini',BUILD_VERSION)
+    save_output_file('WallpaperPage.xaml.ini',BUILD_VERSION)
 
 def publicdata():
     print('publicdata-保存文件')
@@ -117,8 +117,8 @@ def publicdata():
 
 def redirects():
     with open(os.path.join(OUTPUT_PATH, '_redirects'), 'w', encoding='utf-8') as f:
-        f.write('''/ /Custom.xaml 200
-/version /Custom.xaml.ini 200''')
+        f.write('''/ /WallpaperPage.xaml 200
+/version /WallpaperPage.xaml.ini 200''')
 
 def init():
     print('init-初始化中')
