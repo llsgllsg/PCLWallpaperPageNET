@@ -64,7 +64,8 @@ def mainpage():
     output = ''
     print('mainpage-构建页面')
     print(f'mainpage-获取api数据')
-    alldate_data = requests.get(f'https://bing.npanuhin.me/CN/zh.{today.split('-')[0]}.json').json()
+    year = today.split('-')[0]
+alldate_data = requests.get(f'https://bing.npanuhin.me/CN/zh.{year}.json').json()
     for index in range(1, count+1):
         print(f'mainpage-构建页面-{index}/{count}')
         date_data = alldate_data[-index]
