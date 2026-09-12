@@ -1,7 +1,42 @@
-name: Test
-on: workflow_dispatch
+name: WallpaperPage.xaml
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
 jobs:
-  test:
+  update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
-      - run: echo "Hello"
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: pip install requests
+
+      - name: 生成主页
+        run: python main.py
+
+      - name: 检查生成的文件
+        run: |
+          if [ -f "WallpaperPage.xaml" ]; then
+            echo "文件已生成"
+            ls -la WallpaperPage.xaml
+          else
+            echo "文件未生成，请检查脚本"
+            exit 1
+          fi
+
+      - name: 写回仓库
+        run: |
+          git config user.name "llsgllsg"
+          git config user.email "151439431+llsgllsg@u
