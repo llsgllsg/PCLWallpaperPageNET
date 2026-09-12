@@ -28,9 +28,9 @@ jobs:
 
       - name: 检查生成的文件
         run: |
-          if [ -f "WallpaperPage.xaml" ]; then
+          if [ -f "output/WallpaperPage.xaml" ]; then
             echo "文件已生成"
-            ls -la WallpaperPage.xaml
+            ls -la output/WallpaperPage.xaml
           else
             echo "文件未生成，请检查脚本"
             exit 1
@@ -40,6 +40,7 @@ jobs:
         run: |
           git config user.name "llsgllsg"
           git config user.email "151439431+llsgllsg@users.noreply.github.com"
+          cp output/WallpaperPage.xaml .
           git add WallpaperPage.xaml output/
           git diff --cached --quiet || git commit -m "更新主页 $(date +%Y-%m-%d)"
           git push
